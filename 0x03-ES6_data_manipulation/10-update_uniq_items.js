@@ -1,12 +1,11 @@
-/* eslint-disable no-param-reassign */
-export default function updateUniqueItems(weakmap) {
-  if (weakmap instanceof weakmap) {
-    for (const [key, value] of weakmap) {
-      if (value === 1) {
-        weakmap.set(key, 100);
+export default function updateUniqueItems(map) {
+  if (map instanceof Map) {
+    for (const [key, val] of map) {
+      if (val === 1) {
+        map.set(key, 100);
       }
     }
-    return weakmap;
+    return map;
   }
-  throw new Error('Endpoint load is high');
+  throw new Error('Cannot process');
 }
