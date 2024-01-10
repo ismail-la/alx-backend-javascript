@@ -13,7 +13,7 @@ export default function cleanSet(set, startString) {
     return '';
   }
   return [...set]
-    .filter((val) => (val !== undefined ? val.startsWith(string) : ''))
-    .map((val) => (val !== undefined ? val.slice(string.length) : ''))
+    .filter((val) => (val !== undefined ? val.startsWith(startString) : ''))
+    .map((val) => (val !== undefined ? val.slice(startString.length) : ''))
     .join('-');
 }
