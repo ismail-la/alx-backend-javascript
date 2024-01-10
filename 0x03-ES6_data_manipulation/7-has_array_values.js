@@ -4,6 +4,6 @@
  * @param {*} array - The array of items.
  * @returns {Boolean}
  */
-export default function hasValuesFromArray(Set, array) {
-  return array.every((val) => set.has(val));
+export default function hasValuesFromArray(set, array) {
+  return array.every((value) => set.has(value));
 }
