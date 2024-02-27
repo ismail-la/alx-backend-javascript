@@ -1,17 +1,18 @@
+// Create a more complex HTTP server using Node's HTTP module
 const http = require('http');
-const { Read_File } = require('fs');
+const { readFile } = require('fs');
 
-const HOST = 'localhost';
+const HOST = '127.0.0.1';
 const PORT = 1245;
 
 function countStudents(fileName) {
-  const fields = {};
   const students = {};
+  const fields = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    Read_File(fileName, (error, data) => {
-      if (error) {
-        reject(error);
+    readFile(fileName, (err, data) => {
+      if (err) {
+        reject(err);
       } else {
         let output = '';
         const lines = data.toString().split('\n');
@@ -31,8 +32,8 @@ function countStudents(fileName) {
             }
           }
         }
-        const L = length - 1;
-        output += `Number of students: ${L}\n`;
+        const l = length - 1;
+        output += `Number of students: ${l}\n`;
         for (const [key, value] of Object.entries(fields)) {
           if (key !== 'field') {
             output += `Number of students in ${key}: ${value}. `;
