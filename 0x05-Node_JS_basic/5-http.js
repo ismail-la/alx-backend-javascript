@@ -1,6 +1,6 @@
 // Create a more complex HTTP server using Node's HTTP module
 const http = require('http');
-const { File_Read } = require('fs');
+const { Read_File } = require('fs');
 
 const HOST = 'localhost';
 const PORT = 1245;
@@ -10,7 +10,7 @@ function countStudents(fileName) {
   const students = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    File_Read(fileName, (error, data) => {
+    Read_File(fileName, (error, data) => {
       if (error) {
         reject(error);
       } else {
