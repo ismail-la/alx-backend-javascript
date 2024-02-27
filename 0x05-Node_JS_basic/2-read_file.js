@@ -1,3 +1,4 @@
+// Reading a file synchronously with Node JS
 const fs = require('fs');
 
 function countStudents(filePath) {
@@ -7,7 +8,7 @@ function countStudents(filePath) {
   try {
     const fileLines = fs.readFileSync(filePath, 'utf-8');
     const Lines = fileLines.toString().split('\n');
-    for (let i = 0; i < lines.length; i += 1) {
+    for (let i = 0; i < Lines.length; i += 1) {
       if (Lines[i]) {
         length += 1;
         const field = Lines[i].toString().split(',');
@@ -23,8 +24,8 @@ function countStudents(filePath) {
         }
       }
     }
-    const l = length - 1;
-    console.log(`Number of students: ${l}`);
+    const L = length - 1;
+    console.log(`Number of students: ${L}`);
     for (const [key, value] of Object.entries(fields)) {
       if (key !== 'field') {
         console.log(`Number of students in ${key}: ${value}. List: ${students[key].join(', ')}`);
