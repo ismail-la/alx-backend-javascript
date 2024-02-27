@@ -39,7 +39,7 @@ function countStudents(fileName) {
             output += `List: ${students[key].join(', ')}\n`;
           }
         }
-        resolve(output);
+        res(output);
       }
     });
   });
