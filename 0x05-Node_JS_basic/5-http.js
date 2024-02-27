@@ -1,18 +1,18 @@
 // Create a more complex HTTP server using Node's HTTP module
 const http = require('http');
-const { readFile } = require('fs');
+const { File_Read } = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 1245;
+const PORT = 1245;
+const HOST = 'localhost';
 
 function countStudents(fileName) {
-  const students = {};
   const fields = {};
+  const students = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    readFile(fileName, (err, data) => {
-      if (err) {
-        reject(err);
+    File_Read(fileName, (error, data) => {
+      if (error) {
+        reject(error);
       } else {
         let output = '';
         const lines = data.toString().split('\n');
@@ -32,8 +32,8 @@ function countStudents(fileName) {
             }
           }
         }
-        const l = length - 1;
-        output += `Number of students: ${l}\n`;
+        const L = length - 1;
+        output += `Number of students: ${L}\n`;
         for (const [key, value] of Object.entries(fields)) {
           if (key !== 'field') {
             output += `Number of students in ${key}: ${value}. `;
@@ -46,26 +46,26 @@ function countStudents(fileName) {
   });
 }
 
-const app = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  if (req.url === '/') {
-    res.write('Hello Holberton School!');
-    res.end();
+const app = http.createServer((request, resolve) => {
+  resolve.statusCode = 200;
+  resolve.setHeader('Content-Type', 'text/plain');
+  if (request.url === '/') {
+    resolve.write('Hello Holberton School!');
+    resolve.end();
   }
-  if (req.url === '/students') {
-    res.write('This is the list of our students\n');
+  if (request.url === '/students') {
+    resolve.write('This is the list of our students\n');
     countStudents(process.argv[2].toString()).then((output) => {
       const outString = output.slice(0, -1);
-      res.end(outString);
+      resolve.end(outString);
     }).catch(() => {
-      res.statusCode = 404;
-      res.end('Cannot load the database');
+      resolve.statusCode = 404;
+      resolve.end('Cannot load the database');
     });
   }
 });
 
-app.listen(port, hostname, () => {
+app.listen(PORT, HOST, () => {
 });
 
 module.exports = app;
