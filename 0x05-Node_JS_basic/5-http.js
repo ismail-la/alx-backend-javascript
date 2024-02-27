@@ -2,7 +2,7 @@
 const http = require('http');
 const { readFile } = require('fs');
 
-const HOST = '127.0.0.1';
+const HOST = 'localhost';
 const PORT = 1245;
 
 function countStudents(fileName) {
@@ -32,8 +32,8 @@ function countStudents(fileName) {
             }
           }
         }
-        const l = length - 1;
-        output += `Number of students: ${l}\n`;
+        const L = length - 1;
+        output += `Number of students: ${L}\n`;
         for (const [key, value] of Object.entries(fields)) {
           if (key !== 'field') {
             output += `Number of students in ${key}: ${value}. `;
