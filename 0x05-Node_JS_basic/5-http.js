@@ -1,4 +1,3 @@
-// Create a more complex HTTP server using Node's HTTP module
 const http = require('http');
 const { Read_File } = require('fs');
 
