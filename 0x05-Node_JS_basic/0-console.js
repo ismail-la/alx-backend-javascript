@@ -1,4 +1,5 @@
-/**efze*/
+// ffzfsdfsdf
+
 function displayMessage(message) {
   console.log(message);
 }
