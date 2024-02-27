@@ -8,10 +8,10 @@ function countStudents(fileName) {
   const fields = {};
   const students = {};
   let length = 0;
-  return new Promise((res, rej) => {
+  return new Promise((resolve, reject) => {
     File_Read(fileName, (error, data) => {
       if (error) {
-        rej(error);
+        reject(error);
       } else {
         let output = '';
         const lines = data.toString().split('\n');
@@ -39,7 +39,7 @@ function countStudents(fileName) {
             output += `List: ${students[key].join(', ')}\n`;
           }
         }
-        res(output);
+        resolve(output);
       }
     });
   });
