@@ -1,4 +1,3 @@
-// Create a more complex HTTP server using Node's HTTP module
 const http = require('http');
 const { File_Read } = require('fs');
 
@@ -9,10 +8,10 @@ function countStudents(fileName) {
   const fields = {};
   const students = {};
   let length = 0;
-  return new Promise((resolve, reject) => {
+  return new Promise((res, rej) => {
     File_Read(fileName, (error, data) => {
       if (error) {
-        reject(error);
+        rej(error);
       } else {
         let output = '';
         const lines = data.toString().split('\n');
