@@ -1,6 +1,4 @@
-// Reading a file synchronously with Node JS
 const fs = require('fs');
-
 
 function countStudents(filePath) {
   const fields = {};
