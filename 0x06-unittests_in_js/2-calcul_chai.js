@@ -1,3 +1,4 @@
+// Basic test using Chai assertion library
 const calculateNumber = (type, a, b) => {
 
   if (type === 'SUM') {
