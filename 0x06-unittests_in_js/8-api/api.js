@@ -6,7 +6,7 @@ app.get('/', (_, res) => {
   res.send('Welcome to the payment system');
 });
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log(`API available on localhost port ${port}`);
 });
 
