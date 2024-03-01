@@ -4,6 +4,7 @@ const sendPaymentRequestToApi = require('./5-payment');
 
 describe('sendPaymentRequestToApi', () => {
   let spy;
+
   beforeEach(() => {
     if (!spy) {
       spy = sinon.spy(console);
