@@ -1,3 +1,4 @@
+// Combining descriptions
 const calculateNumber = (type, a, b) => {
 
   if (type === 'SUM') {
